@@ -745,4 +745,4 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-console.log('ðŸ¦ SecureBank Pro Banking System Loaded Successfully!');
+console.log(¦ SecureBank Pro Banking System Loaded Successfully!');
