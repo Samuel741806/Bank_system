@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏦 SecureBank Pro - Online Banking</title>
+    <link rel="stylesheet" href="banking-styles.css">
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <div id="welcome-screen" class="screen active">
+        <div class="hero-section">
+            <div class="hero-content">
+                <div class="bank-logo">
+                    <div class="logo-icon">🏦</div>
+                    <h1>SecureBank Pro</h1>
+                    <p class="tagline">Your Trusted Digital Banking Partner</p>
+                </div>
+
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="showScreen('login-screen')">
+                        <span class="btn-icon">🔐</span>
+                        Login
+                    </button>
+                    <button class="btn btn-secondary" onclick="showScreen('register-screen')">
+                        <span class="btn-icon">📝</span>
+                        Register
+                    </button>
+                </div>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🔒</span>
+                    <h3>Secure</h3>
+                    <p>Bank-grade security for your peace of mind</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">⚡</span>
+                    <h3>Fast</h3>
+                    <p>Instant transactions and real-time updates</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">📱</span>
+                    <h3>Convenient</h3>
+                    <p>Bank anytime, anywhere on any device</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🎯</span>
+                    <h3>Simple</h3>
+                    <p>Easy-to-use interface for everyone</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Screen -->
+    <div id="login-screen" class="screen">
+        <div class="auth-container">
+            <button class="back-btn" onclick="showScreen('welcome-screen')">
+                <span>←</span> Back
+            </button>
+
+            <div class="auth-card">
+                <div class="auth-header">
+                    <span class="auth-icon">🔐</span>
+                    <h2>Welcome Back!</h2>
+                    <p>Login to your account</p>
+                </div>
+
+                <form id="login-form" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="login-username">
+                            <span class="label-icon">👤</span>
+                            Username
+                        </label>
+                        <input type="text" id="login-username" required 
+                               placeholder="Enter your username">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="login-password">
+                            <span class="label-icon">🔒</span>
+                            Password
+                        </label>
+                        <input type="password" id="login-password" required 
+                               placeholder="Enter your password">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <span class="btn-icon">🔐</span>
+                        Login to Account
+                    </button>
+                </form>
+
+                <div class="auth-footer">
+                    <p>Don't have an account? 
+                        <a href="#" onclick="showScreen('register-screen'); return false;">
+                            Register here
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Screen -->
+    <div id="register-screen" class="screen">
+        <div class="auth-container">
+            <button class="back-btn" onclick="showScreen('welcome-screen')">
+                <span>←</span> Back
+            </button>
+
+            <div class="auth-card">
+                <div class="auth-header">
+                    <span class="auth-icon">📝</span>
+                    <h2>Create Account</h2>
+                    <p>Join SecureBank Pro today</p>
+                </div>
+
+                <form id="register-form" onsubmit="handleRegister(event)">
+                    <div class="form-group">
+                        <label for="reg-fullname">
+                            <span class="label-icon">👤</span>
+                            Full Name
+                        </label>
+                        <input type="text" id="reg-fullname" required 
+                               placeholder="Enter your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg-username">
+                            <span class="label-icon">🆔</span>
+                            Username
+                        </label>
+                        <input type="text" id="reg-username" required 
+                               placeholder="Choose a username" minlength="3">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg-email">
+                            <span class="label-icon">📧</span>
+                            Email Address
+                        </label>
+                        <input type="email" id="reg-email" required 
+                               placeholder="your@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg-password">
+                            <span class="label-icon">🔒</span>
+                            Password
+                        </label>
+                        <input type="password" id="reg-password" required 
+                               placeholder="Create a strong password" minlength="6">
+                        <small class="form-hint">Minimum 6 characters</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg-confirm-password">
+                            <span class="label-icon">🔒</span>
+                            Confirm Password
+                        </label>
+                        <input type="password" id="reg-confirm-password" required 
+                               placeholder="Re-enter your password">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <span class="btn-icon">✨</span>
+                        Create Account
+                    </button>
+                </form>
+
+                <div class="auth-footer">
+                    <p>Already have an account? 
+                        <a href="#" onclick="showScreen('login-screen'); return false;">
+                            Login here
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Screen -->
+    <div id="dashboard-screen" class="screen">
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <span class="logo-icon">🏦</span>
+                <span class="brand-name">SecureBank Pro</span>
+            </div>
+            <div class="navbar-user">
+                <span class="user-greeting">Hello, <strong id="user-name-display"></strong>!</span>
+                <button class="btn btn-small btn-danger" onclick="handleLogout()">
+                    <span class="btn-icon">🚪</span>
+                    Logout
+                </button>
+            </div>
+        </nav>
+
+        <div class="dashboard-container">
+            <!-- Account Summary Section -->
+            <section class="dashboard-section">
+                <div class="section-header">
+                    <h2>
+                        <span class="section-icon">💳</span>
+                        Your Accounts
+                    </h2>
+                    <button class="btn btn-secondary btn-small" onclick="createNewAccount()">
+                        <span class="btn-icon">➕</span>
+                        New Account
+                    </button>
+                </div>
+
+                <div id="accounts-grid" class="accounts-grid">
+                    <!-- Accounts will be loaded here -->
+                </div>
+
+                <div class="total-balance-card">
+                    <div class="total-balance-label">Total Balance</div>
+                    <div class="total-balance-amount" id="total-balance">$0.00</div>
+                </div>
+            </section>
+
+            <!-- Quick Actions Section -->
+            <section class="dashboard-section">
+                <div class="section-header">
+                    <h2>
+                        <span class="section-icon">⚡</span>
+                        Quick Actions
+                    </h2>
+                </div>
+
+                <div class="quick-actions-grid">
+                    <button class="action-card" onclick="showTransactionModal('deposit')">
+                        <span class="action-icon">💰</span>
+                        <span class="action-label">Deposit</span>
+                    </button>
+                    <button class="action-card" onclick="showTransactionModal('withdraw')">
+                        <span class="action-icon">💸</span>
+                        <span class="action-label">Withdraw</span>
+                    </button>
+                    <button class="action-card" onclick="showTransferModal()">
+                        <span class="action-icon">🔄</span>
+                        <span class="action-label">Transfer</span>
+                    </button>
+                    <button class="action-card" onclick="showTransactionHistory()">
+                        <span class="action-icon">📊</span>
+                        <span class="action-label">History</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Recent Transactions Section -->
+            <section class="dashboard-section">
+                <div class="section-header">
+                    <h2>
+                        <span class="section-icon">📋</span>
+                        Recent Transactions
+                    </h2>
+                </div>
+
+                <div id="recent-transactions" class="transactions-list">
+                    <!-- Recent transactions will be loaded here -->
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Transaction Modal -->
+    <div id="transaction-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Transaction</h3>
+                <button class="close-btn" onclick="closeModal('transaction-modal')">×</button>
+            </div>
+            <form id="transaction-form" onsubmit="handleTransaction(event)">
+                <div class="form-group">
+                    <label for="transaction-account">Select Account</label>
+                    <select id="transaction-account" required>
+                        <option value="">Choose an account...</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="transaction-amount">Amount ($)</label>
+                    <input type="number" id="transaction-amount" step="0.01" min="0.01" 
+                           required placeholder="0.00">
+                </div>
+
+                <div class="form-group">
+                    <label for="transaction-description">Description (Optional)</label>
+                    <input type="text" id="transaction-description" 
+                           placeholder="What is this transaction for?">
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                    <span class="btn-icon">✅</span>
+                    Process Transaction
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Transfer Modal -->
+    <div id="transfer-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Transfer Funds</h3>
+                <button class="close-btn" onclick="closeModal('transfer-modal')">×</button>
+            </div>
+            <form id="transfer-form" onsubmit="handleTransfer(event)">
+                <div class="form-group">
+                    <label for="transfer-from">From Account</label>
+                    <select id="transfer-from" required>
+                        <option value="">Choose source account...</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="transfer-to">To Account</label>
+                    <select id="transfer-to" required>
+                        <option value="">Choose destination account...</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="transfer-amount">Amount ($)</label>
+                    <input type="number" id="transfer-amount" step="0.01" min="0.01" 
+                           required placeholder="0.00">
+                </div>
+
+                <div class="form-group">
+                    <label for="transfer-description">Description (Optional)</label>
+                    <input type="text" id="transfer-description" 
+                           placeholder="What is this transfer for?">
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                    <span class="btn-icon">🔄</span>
+                    Transfer Funds
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Transaction History Modal -->
+    <div id="history-modal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3>Transaction History</h3>
+                <button class="close-btn" onclick="closeModal('history-modal')">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="history-account">Select Account</label>
+                    <select id="history-account" onchange="loadAccountHistory()">
+                        <option value="">All Accounts</option>
+                    </select>
+                </div>
+
+                <div id="history-list" class="transactions-list">
+                    <!-- Transaction history will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <span class="notification-icon" id="notification-icon"></span>
+            <span class="notification-message" id="notification-message"></span>
+        </div>
+    </div>
+
+    <script src="banking-app.js"></script>
+</body>
+                          </html>
