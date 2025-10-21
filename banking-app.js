@@ -658,11 +658,11 @@ function formatDate(dateString) {
 
 function getAccountIcon(type) {
     const icons = {
-        'Savings Account': 'ðŸ’°',
-        'Checking Account': 'ðŸ’³',
-        'Business Account': 'ðŸ¢'
+        'Savings Account':,
+        'Checking Account':,
+        'Business Account':,
     };
-    return icons[type] || 'ðŸ’µ';
+    return icons[type] ||;
 }
 
 function getAccountGradient(type) {
@@ -676,12 +676,12 @@ function getAccountGradient(type) {
 
 function getTransactionIcon(type) {
     const icons = {
-        'deposit': 'ðŸ’°',
-        'withdrawal': 'ðŸ’¸',
-        'transfer_in': 'ðŸ“¥',
-        'transfer_out': 'ðŸ“¤'
+        'deposit':,
+        'withdrawal':,
+        'transfer_in':,
+        'transfer_out':,
     };
-    return icons[type] || 'ðŸ’µ';
+    return icons[type] ||;
 }
 
 function getTransactionTitle(type) {
@@ -706,10 +706,10 @@ function showNotification(message, type = 'success') {
 
     // Set icon based on type
     const icons = {
-        'success': 'âœ…',
-        'error': 'âŒ',
-        'warning': 'âš ï¸',
-        'info': 'â„¹ï¸'
+        'success':,
+        'error':,
+        'warning':,
+        'info':¸
     };
 
     icon.textContent = icons[type] || icons['info'];
